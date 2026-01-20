@@ -25,19 +25,40 @@ export default function Part3() {
 
             <section style={{ marginBottom: '60px' }}>
                 <h2 style={{ marginBottom: '30px' }}>2. User Scenarios (Storyboards)</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '30px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }}>
+
+                    {/* Scenario 1 */}
                     <div className="glass" style={{ padding: '40px' }}>
                         <h3>Scenario 1: Smart Item Checking</h3>
-                        <p style={{ color: 'var(--text-muted)', marginTop: '10px' }}>
-                            <strong>Mariah (Student)</strong> is heading to class. The SDO notifies her smartphone that her "Wallet" is still on the desk. She retrieves it, and the system confirms all essentials are present.
-                        </p>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', alignItems: 'center', marginTop: '20px' }}>
+                            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                                <strong>Mariah (Student)</strong> is heading to class. The SDO notifies her smartphone that her "Wallet" is still on the desk.
+                                She checks the <strong style={{ color: 'var(--cyan)' }}>Desk Inventory Map</strong> to confirm the location.
+                            </p>
+                            <img
+                                src={process.env.NODE_ENV === 'production' ? '/smart-desk-organizer/assets/find-items.png' : '/assets/find-items.png'}
+                                alt="Find Lost Items Interface"
+                                className="img-preview"
+                            />
+                        </div>
                     </div>
+
+                    {/* Scenario 2 */}
                     <div className="glass" style={{ padding: '40px' }}>
-                        <h3>Scenario 2: Assisted Organization</h3>
-                        <p style={{ color: 'var(--text-muted)', marginTop: '10px' }}>
-                            <strong>Karim (Elderly User)</strong> is overwhelmed by physical documents. He activates "Elderly Mode" via voice. The SDO projects labeled sections ("Bills", "Notes") onto the desk surface to guide sorting.
-                        </p>
+                        <h3>Scenario 2: Health Assistance</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', alignItems: 'center', marginTop: '20px' }}>
+                            <img
+                                src={process.env.NODE_ENV === 'production' ? '/smart-desk-organizer/assets/health-assist.png' : '/assets/health-assist.png'}
+                                alt="Health Assist Interface"
+                                className="img-preview"
+                            />
+                            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                                <strong>Karim (Elderly User)</strong> needs to manage his health. The <strong style={{ color: 'var(--green)' }}>Health Assist</strong> center
+                                provides clear medication reminders and real-time vital monitoring with large, accessible visuals.
+                            </p>
+                        </div>
                     </div>
+
                 </div>
             </section>
 
