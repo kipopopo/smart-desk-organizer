@@ -1,11 +1,13 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: '/smart-desk-organizer',
-  assetPrefix: '/smart-desk-organizer',
+  basePath: isProd ? '/smart-desk-organizer' : '',
+  assetPrefix: isProd ? '/smart-desk-organizer' : '',
 };
 
 module.exports = nextConfig;
