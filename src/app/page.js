@@ -20,8 +20,19 @@ export default function Home() {
             padding: '15px 40px',
             color: 'white',
             fontWeight: '600',
-            cursor: 'not-allowed'
-          }}>Coming Soon</button>
+            cursor: 'default',
+            opacity: 0.8
+          }}>Live Preview Below</button>
+        </div>
+
+        {/* Prototype Showcase */}
+        <div style={{ marginTop: '60px', padding: '0 20px' }}>
+          <img
+            src={process.env.NODE_ENV === 'production' ? '/smart-desk-organizer/assets/dashboard.png' : '/assets/dashboard.png'}
+            alt="Smart Desk Dashboard"
+            className="img-preview"
+            style={{ maxWidth: '1000px', margin: '0 auto' }}
+          />
         </div>
       </section>
 

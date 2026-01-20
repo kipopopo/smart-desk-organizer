@@ -1,28 +1,43 @@
 :root {
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --secondary: #a855f7;
-  --bg: #030712;
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --border: rgba(255, 255, 255, 0.1);
-  --text: #f9fafb;
-  --text-muted: #9ca3af;
-  --accent: #22d3ee;
+  /* System Color Language - Derived from Prototype */
+  --bg: #1e1e1e;
+  /* Midnight Black */
+  --text: #ffffff;
+  --text-muted: #a0a0a0;
+
+  --primary: #0891b2;
+  /* Interaction Cyan (cyan-600) */
+  --secondary: #64748b;
+  /* Slate-500 */
+
+  --cyan: #0891b2;
+  /* Interaction */
+  --green: #22c55e;
+  /* Wellness (green-500) */
+  --amber: #f59e0b;
+  /* Warning (amber-500) */
+  --red: #ef4444;
+  /* Critical (red-500) */
+  --purple: #a855f7;
+  /* Focus (purple-500) */
+  --emerald: #10b981;
+  /* Creative (emerald-500) */
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-bg: #2d2d2e;
+  --nav-bg: rgba(30, 30, 30, 0.9);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  /* Optional: Add a subtle texture or gradient if the prototype has one */
+  background-image: radial-gradient(circle at 50% 0%, #2a2a2a 0%, #1e1e1e 70%);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 a {
@@ -30,19 +45,62 @@ a {
   text-decoration: none;
 }
 
-/* Glassmorphism */
+/* Glassmorphism Utilities */
 .glass {
-  background: var(--card-bg);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.glass-panel {
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
 }
 
+/* Typography & Effects */
+.title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 .section {
@@ -51,27 +109,37 @@ a {
   margin: 0 auto;
 }
 
-.title {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  text-align: center;
+/* Specific Prototype Button Styles */
+.btn-primary {
+  background: var(--cyan);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  /* Rounded-full */
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
 }
 
-.subtitle {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Image Containers for Screenshots */
+.img-preview {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+  display: block;
 }
 
-.animate {
-  animation: fadeIn 0.8s ease forwards;
+.img-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(8, 145, 178, 0.2);
 }
