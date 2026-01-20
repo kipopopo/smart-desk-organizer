@@ -1,8 +1,25 @@
+'use client';
 
 export default function Part4() {
+    const basePath = process.env.NODE_ENV === 'production' ? '/smart-desk-organizer' : '';
+
     return (
         <main className="section animate" style={{ paddingTop: '120px' }}>
             <h1 className="title">Part 4: <span className="gradient-text">Evaluation & Feedback</span></h1>
+
+            {/* Usability Testing Hero */}
+            <section style={{ marginBottom: '60px' }}>
+                <div className="glass" style={{ padding: '20px', textAlign: 'center' }}>
+                    <img
+                        src={`${basePath}/assets/usability-testing.png`}
+                        alt="Usability Testing Session"
+                        style={{ width: '100%', maxWidth: '700px', borderRadius: '16px' }}
+                    />
+                    <p style={{ color: 'var(--text-muted)', marginTop: '15px', fontStyle: 'italic' }}>
+                        Usability testing session with participant interaction and researcher observation
+                    </p>
+                </div>
+            </section>
 
             <section style={{ marginBottom: '60px' }}>
                 <h2 style={{ marginBottom: '30px' }}>1. Usability Testing Results</h2>
@@ -36,14 +53,17 @@ export default function Part4() {
                 <h2 style={{ marginBottom: '30px' }}>2. User Feedback</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
                     <div className="glass" style={{ padding: '30px' }}>
+                        <div style={{ fontSize: '2.5rem', marginBottom: '15px' }}>💬</div>
                         <p style={{ fontStyle: 'italic', color: 'var(--text-muted)' }}>"The integration is smooth and would definitely improve productivity."</p>
                         <p style={{ marginTop: '10px', fontWeight: 'bold' }}>- Daniel (Student)</p>
                     </div>
                     <div className="glass" style={{ padding: '30px' }}>
+                        <div style={{ fontSize: '2.5rem', marginBottom: '15px' }}>🎯</div>
                         <p style={{ fontStyle: 'italic', color: 'var(--text-muted)' }}>"Gesture sensitivity could be improved, but voice control is a win."</p>
                         <p style={{ marginTop: '10px', fontWeight: 'bold' }}>- Haziq (IT Support)</p>
                     </div>
                     <div className="glass" style={{ padding: '30px' }}>
+                        <div style={{ fontSize: '2.5rem', marginBottom: '15px' }}>👁️</div>
                         <p style={{ fontStyle: 'italic', color: 'var(--text-muted)' }}>"Helpful for visibility, but suggest even larger text options."</p>
                         <p style={{ marginTop: '10px', fontWeight: 'bold' }}>- User 3 (Accessibility focus)</p>
                     </div>

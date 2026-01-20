@@ -1,5 +1,8 @@
+'use client';
 
 export default function Part2() {
+    const basePath = process.env.NODE_ENV === 'production' ? '/smart-desk-organizer' : '';
+
     return (
         <main className="section animate" style={{ paddingTop: '120px' }}>
             <h1 className="title">Part 2: <span className="gradient-text">Establishing Requirements</span></h1>
@@ -12,6 +15,7 @@ export default function Part2() {
                             name: 'Adam Farhan',
                             age: 22,
                             role: 'University Student',
+                            emoji: '🎓',
                             desc: 'Spends long hours studying and experiences desk clutter and poor posture. Needs focus and time management.',
                             goals: ['Improve focus', 'Manage desk clutter', 'Reduce physical discomfort']
                         },
@@ -19,6 +23,7 @@ export default function Part2() {
                             name: 'Encik Roslan',
                             age: 63,
                             role: 'Retired Officer',
+                            emoji: '👴',
                             desc: 'Has mild joint stiffness and reduced eyesight. Prefers simple technology and needs comfort/safety reminders.',
                             goals: ['Maintain comfort', 'Gentle break reminders', 'Accessibility help']
                         },
@@ -26,11 +31,13 @@ export default function Part2() {
                             name: 'Daniel Lim',
                             age: 32,
                             role: 'Software Developer',
+                            emoji: '💻',
                             desc: 'Remote worker facing burnout. Needs automation, ergonomic tracking, and minimal distractions.',
                             goals: ['Maximize productivity', 'Ergonomic posture', 'Automated patterns']
                         }
                     ].map((u, i) => (
                         <div key={i} className="glass" style={{ padding: '30px' }}>
+                            <div style={{ fontSize: '3rem', marginBottom: '15px' }}>{u.emoji}</div>
                             <h3 className="gradient-text">{u.name}, {u.age}</h3>
                             <p style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '10px' }}>{u.role}</p>
                             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '20px' }}>{u.desc}</p>
@@ -44,23 +51,22 @@ export default function Part2() {
 
             <section style={{ marginBottom: '60px' }}>
                 <h2 style={{ marginBottom: '30px' }}>2. Hierarchical Task Analysis (HTA)</h2>
-                <div className="glass" style={{ padding: '40px' }}>
-                    <h3>Task: Managing Daily Work Sessions</h3>
-                    <div style={{ marginTop: '20px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                        <p><strong>0. Manage daily study/work session</strong></p>
-                        <p style={{ marginLeft: '20px' }}>1. Prepare for session (Sit, arrange materials, activate mode)</p>
-                        <p style={{ marginLeft: '20px' }}>2. Begin session (Start focus timer, display status)</p>
-                        <p style={{ marginLeft: '20px' }}>3. Perform activities (Reading, typing, switching between materials)</p>
-                        <p style={{ marginLeft: '20px' }}>4. Receive assistance (Focus reminders, posture alerts)</p>
-                        <p style={{ marginLeft: '20px' }}>5. Manage breaks (Detect end of focus, suggest rest)</p>
-                        <p style={{ marginLeft: '20px' }}>6. End session (Save data, return to idle)</p>
-                    </div>
+                <div className="glass" style={{ padding: '40px', textAlign: 'center' }}>
+                    <h3 style={{ marginBottom: '20px' }}>Task: Managing Daily Work Sessions</h3>
+                    <img
+                        src={`${basePath}/assets/hta-diagram.png`}
+                        alt="HTA Diagram - Managing Daily Work Sessions"
+                        style={{ width: '100%', maxWidth: '800px', borderRadius: '12px', margin: '0 auto' }}
+                    />
+                    <p style={{ color: 'var(--text-muted)', marginTop: '20px', fontSize: '0.9rem' }}>
+                        Visual representation of the task hierarchy for daily work session management
+                    </p>
                 </div>
             </section>
 
             <section>
                 <h2 style={{ marginBottom: '30px' }}>3. System Requirements</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
                     <div className="glass" style={{ padding: '30px' }}>
                         <h3>Functional (FR)</h3>
                         <ul style={{ color: 'var(--text-muted)', marginTop: '15px', paddingLeft: '20px' }}>

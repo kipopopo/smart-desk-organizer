@@ -1,8 +1,23 @@
+'use client';
 
 export default function Part1() {
+    const basePath = process.env.NODE_ENV === 'production' ? '/smart-desk-organizer' : '';
+
     return (
         <main className="section animate" style={{ paddingTop: '120px' }}>
             <h1 className="title">Part 1: <span className="gradient-text">Project Proposal</span></h1>
+
+            {/* Hero Concept Image */}
+            <div className="glass" style={{ padding: '20px', marginBottom: '40px', textAlign: 'center' }}>
+                <img
+                    src={`${basePath}/assets/smart-desk-concept.png`}
+                    alt="Smart Desk Organizer Concept"
+                    style={{ width: '100%', maxWidth: '700px', borderRadius: '16px' }}
+                />
+                <p style={{ color: 'var(--text-muted)', marginTop: '15px', fontStyle: 'italic' }}>
+                    Concept: AI-Powered Smart Desk with integrated touchscreen and holographic notifications
+                </p>
+            </div>
 
             <div className="glass" style={{ padding: '40px', marginBottom: '40px' }}>
                 <h2 style={{ marginBottom: '20px' }}>1. Problem Statement</h2>
@@ -15,7 +30,7 @@ export default function Part1() {
                 </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '40px' }}>
                 <div className="glass" style={{ padding: '30px' }}>
                     <h2 style={{ marginBottom: '20px' }}>2. Objectives</h2>
                     <ul style={{ color: 'var(--text-muted)', paddingLeft: '20px', lineHeight: '1.8' }}>
