@@ -79,6 +79,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Project Breakdown Section */}
+      <section className="section animate" id="breakdown">
+        <h2 className="title" style={{ textAlign: 'center', fontSize: '3rem', marginBottom: '60px' }}>
+          Project <span className="gradient-text">Breakdown</span>
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+          {[
+            { tag: 'Part 1', title: 'The Proposal', href: '/part-1', desc: 'Problem statement, objectives, and proposed solution.' },
+            { tag: 'Part 2', title: 'Requirements', href: '/part-2', desc: 'User personas, task analysis (HTA), and system specs.' },
+            { tag: 'Part 3', title: 'Design', href: '/part-3', desc: 'Interface metaphors, storyboards, and prototyping.' },
+            { tag: 'Part 4', title: 'Evaluation', href: '/part-4', desc: 'Usability testing, user feedback, and final results.' },
+          ].map((item, i) => (
+            <a href={`/smart-desk-organizer${item.href}`} key={i} className="glass" style={{ padding: '30px', textDecoration: 'none', transition: 'transform 0.3s', display: 'block' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 'bold' }}>{item.tag}</span>
+              <h3 style={{ margin: '10px 0' }}>{item.title}</h3>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{item.desc}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="section" id="team">
         <h2 className="title">Project Team</h2>
