@@ -10,4 +10,4 @@ const nextConfig = {
   assetPrefix: isProd ? '/smart-desk-organizer' : '',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
