@@ -23,10 +23,12 @@ export default function RootLayout({ children }) {
           alignItems: 'center'
         }}>
           <div style={{ fontWeight: 'bold', fontSize: '1.5rem' }} className="gradient-text">SDO</div>
-          <div style={{ display: 'flex', gap: '30px' }}>
-            <a href="#features">Features</a>
-            <a href="#personas">Users</a>
-            <a href="#team">Team</a>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a href="/smart-desk-organizer/">Home</a>
+            <a href="/smart-desk-organizer/part-1">Part 1: Proposal</a>
+            <a href="/smart-desk-organizer/part-2">Part 2: Requirements</a>
+            <a href="/smart-desk-organizer/part-3">Part 3: Design</a>
+            <a href="/smart-desk-organizer/part-4">Part 4: Evaluation</a>
           </div>
         </nav>
         {children}
