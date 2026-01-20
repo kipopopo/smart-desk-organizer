@@ -1,4 +1,17 @@
 import './globals.css';
+import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+  display: 'swap',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Smart Desk Organizer | SDO',
@@ -8,33 +21,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <nav className="glass" style={{
-          position: 'fixed',
-          top: '20px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '90%',
-          maxWidth: '1200px',
-          zIndex: 1000,
-          padding: '15px 30px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div style={{ fontWeight: 'bold', fontSize: '1.5rem' }} className="gradient-text">SDO</div>
-          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="/smart-desk-organizer/">Home</a>
-            <a href="/smart-desk-organizer/part-1">Part 1: Proposal</a>
-            <a href="/smart-desk-organizer/part-2">Part 2: Requirements</a>
-            <a href="/smart-desk-organizer/part-3">Part 3: Design</a>
-            <a href="/smart-desk-organizer/part-4">Part 4: Evaluation</a>
+      <body className={`${outfit.variable} ${jakarta.variable}`}>
+        {/* Navigation Dock */}
+        <nav className="dock-nav animate-slide-down">
+          <div className="dock-logo gradient-text">SDO</div>
+          <div className="dock-links">
+            <a href="/smart-desk-organizer/" className="nav-link">Home</a>
+            <a href="/smart-desk-organizer/part-1" className="nav-link">Proposal</a>
+            <a href="/smart-desk-organizer/part-2" className="nav-link">Specs</a>
+            <a href="/smart-desk-organizer/part-3" className="nav-link">Design</a>
+            <a href="/smart-desk-organizer/part-4" className="nav-link">Testing</a>
           </div>
         </nav>
+
         {children}
-        <footer style={{ padding: '40px', textAlign: 'center', borderTop: '1px solid var(--border)', marginTop: '80px' }}>
-          <p className="gradient-text" style={{ fontWeight: 'bold', marginBottom: '10px' }}>Smart Desk Organizer & Productivity Assistant</p>
-          <p style={{ color: 'var(--text-muted)' }}>&copy; 2026 UTM HCI Project Group SDO. All rights reserved.</p>
+
+        <footer style={{ padding: '60px 20px', textAlign: 'center', borderTop: '1px solid var(--border-light)', marginTop: '80px', background: 'var(--card-bg)' }}>
+          <p className="gradient-text" style={{ fontWeight: '800', fontSize: '1.2rem', marginBottom: '10px' }}>Smart Desk Organizer</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Designed by UTM HCI Project Group &copy; 2026.</p>
         </footer>
       </body>
     </html>
