@@ -1,17 +1,5 @@
+```
 import './globals.css';
-import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-  display: 'swap',
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  display: 'swap',
-});
 
 export const metadata = {
   title: 'Smart Desk Organizer | SDO',
@@ -21,7 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${jakarta.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body>
         {/* Navigation Dock */}
         <nav className="dock-nav animate-slide-down">
           <div className="dock-logo gradient-text">SDO</div>
