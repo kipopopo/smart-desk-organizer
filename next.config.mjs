@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  basePath: '/smart-desk-organizer',
+  assetPrefix: '/smart-desk-organizer',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
