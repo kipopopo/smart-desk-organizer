@@ -201,9 +201,21 @@ h4,
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  width: 100%;
+}
+
+.team-card {
+  flex: 0 1 240px;
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 /* Mobile Responsiveness */
@@ -269,10 +281,12 @@ h4,
   }
 
   .team-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    gap: 24px;
+  }
+
+  .team-card {
+    flex: 0 1 320px;
+    padding: 24px;
   }
 
   .section {

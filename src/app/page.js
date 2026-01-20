@@ -44,15 +44,21 @@ export default function Home() {
             boxShadow: '0 0 20px rgba(6, 182, 212, 0.4)'
           }}>Explore the Project</a>
 
-          <button style={{
-            background: 'rgba(255,255,255,0.05)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: '9999px',
-            padding: '16px 40px',
-            color: 'var(--text-muted)',
-            fontWeight: '600',
-            cursor: 'default'
-          }}>v1.0 Prototype Live</button>
+          <a
+            href="https://smart-desk-organizer-592806890428.us-west1.run.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass"
+            style={{
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '9999px',
+              padding: '16px 40px',
+              color: 'var(--text-muted)',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}>v1.0 Prototype Live</a>
         </div>
 
         {/* Hero Dashboard Preview */}
@@ -151,14 +157,7 @@ export default function Home() {
             { name: 'MUHAMMAD THAQIF BIN ABDUL AZIZ', id: 'SX231702ECJHF04', img: 'thaqif.jpg' },
             { name: 'PUTRA NAZREEN HAFIZ BIN ABDUL KARIM', id: 'SX240247ECJHS04', img: 'placeholder.png' }
           ].map((m, i) => (
-            <div key={i} className="glass" style={{
-              padding: '20px',
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              transition: 'transform 0.3s ease'
-            }}>
+            <div key={i} className="glass team-card">
               <div style={{
                 width: '120px',
                 height: '160px',
