@@ -1,127 +1,148 @@
 
 export default function Home() {
   return (
-    <main>
+    <main style={{ position: 'relative', overflow: 'hidden' }}>
+
+      {/* Background Glows */}
+      <div style={{
+        position: 'fixed',
+        top: '-20%', left: '-10%',
+        width: '50vw', height: '50vw',
+        background: 'radial-gradient(circle, var(--primary-glow) 0%, transparent 70%)',
+        filter: 'blur(100px)', zIndex: 0, opacity: 0.5
+      }} />
+      <div style={{
+        position: 'fixed',
+        bottom: '-20%', right: '-10%',
+        width: '50vw', height: '50vw',
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)',
+        filter: 'blur(100px)', zIndex: 0, opacity: 0.5
+      }} />
+
       {/* Hero Section */}
-      <section className="section animate" style={{ textAlign: 'center', paddingTop: '160px' }}>
-        <h1 className="title" style={{ fontSize: '4.5rem' }}>
-          Work <span className="gradient-text">Smarter</span>,<br />
+      <section className="section animate" style={{ textAlign: 'center', paddingTop: '180px', minHeight: '90vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 0.9, marginBottom: '20px' }}>
+          Work <span className="gradient-text">Smarter</span>.<br />
           Live <span className="gradient-text">Better</span>.
         </h1>
-        <p className="subtitle">
-          The Smart Desk Organizer & Productivity Assistant (SDO) combines physical organization with AI-driven tools to help students, professionals, and the elderly stay focused and healthy.
+
+        <p className="subtitle" style={{ fontSize: '1.2rem', marginBottom: '40px' }}>
+          The AI-Powered Smart Desk Organizer that harmonizes your workspace health and productivity.
         </p>
-        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-          <a href="#features" className="glass" style={{ padding: '15px 40px', fontWeight: '600' }}>Explore Features</a>
-          <button style={{
+
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginBottom: '80px' }}>
+          <a href="#breakdown" className="glass" style={{
+            padding: '16px 40px',
+            fontSize: '1.1rem',
+            fontWeight: '600',
             background: 'var(--primary)',
             border: 'none',
-            borderRadius: '16px',
-            padding: '15px 40px',
             color: 'white',
+            borderRadius: '9999px',
+            boxShadow: '0 0 20px rgba(6, 182, 212, 0.4)'
+          }}>Explore the Project</a>
+
+          <button style={{
+            background: 'rgba(255,255,255,0.05)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '9999px',
+            padding: '16px 40px',
+            color: 'var(--text-muted)',
             fontWeight: '600',
-            cursor: 'default',
-            opacity: 0.8
-          }}>Live Preview Below</button>
+            cursor: 'default'
+          }}>v1.0 Prototype Live</button>
         </div>
 
-        {/* Prototype Showcase */}
-        <div style={{ marginTop: '60px', padding: '0 20px' }}>
+        {/* Hero Dashboard Preview */}
+        <div className="glass" style={{ padding: '10px', borderRadius: '24px', background: 'rgba(255,255,255,0.05)' }}>
           <img
             src={process.env.NODE_ENV === 'production' ? '/smart-desk-organizer/assets/dashboard.png' : '/assets/dashboard.png'}
             alt="Smart Desk Dashboard"
             className="img-preview"
-            style={{ maxWidth: '1000px', margin: '0 auto' }}
+            style={{ maxWidth: '1000px', boxShadow: 'none', border: 'none' }}
           />
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="section" id="problem">
-        <div className="glass" style={{ padding: '60px', textAlign: 'center' }}>
-          <h2 className="title" style={{ fontSize: '2.5rem' }}>The Challenge</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', lineHeight: '1.6' }}>
-            "Many people struggle to keep their workspace tidy, manage their time well, and stay focused. For elderly users, there are extra challenges like remembering medicine and tracking health."
-          </p>
-        </div>
-      </section>
+      {/* Bento Grid Project Breakdown */}
+      <section className="section" id="breakdown" style={{ position: 'relative' }}>
+        <h2 className="title" style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '60px' }}>Project <span className="gradient-text">Breakdown</span></h2>
 
-      {/* Features Section */}
-      <section className="section" id="features">
-        <h2 className="title">Key Features</h2>
-        <p className="subtitle">Smart hardware integrated with a powerful mobile ecosystem.</p>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '20px'
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateRows: 'repeat(2, 300px)',
+          gap: '24px',
+          maxWidth: '1200px',
+          margin: '0 auto'
         }}>
+          {/* Part 1: Proposal (Large Left) */}
+          <a href="/smart-desk-organizer/part-1" className="glass" style={{
+            gridColumn: 'span 2', gridRow: 'span 2',
+            padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+            background: 'linear-gradient(to top right, rgba(6,182,212,0.1), transparent)'
+          }}>
+            <span style={{ color: 'var(--cyan)', fontWeight: 'bold', marginBottom: '10px' }}>PART 01</span>
+            <h3 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>The Proposal</h3>
+            <p style={{ color: 'var(--text-muted)' }}>Problem Statement, Objectives, and the vision for a smarter workspace.</p>
+          </a>
+
+          {/* Part 2: Requirements (Top Right) */}
+          <a href="/smart-desk-organizer/part-2" className="glass" style={{
+            gridColumn: 'span 2',
+            padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'center',
+            position: 'relative', overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: '-20%', right: '-10%', fontSize: '10rem', opacity: 0.05, fontWeight: '900' }}>02</div>
+            <h3 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>Requirements</h3>
+            <p style={{ color: 'var(--text-muted)' }}>User Personas & Hardware Specs.</p>
+            <span style={{ marginTop: 'auto', color: 'var(--purple)', fontWeight: 'bold' }}>View Analysis &rarr;</span>
+          </a>
+
+          {/* Part 3: Design (Bottom Right 1) */}
+          <a href="/smart-desk-organizer/part-3" className="glass" style={{
+            gridColumn: 'span 1',
+            padding: '30px', display: 'flex', flexDirection: 'column',
+            borderTop: '2px solid var(--green)'
+          }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Design</h3>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>UI Interfaces & Storyboards.</p>
+          </a>
+
+          {/* Part 4: Evaluation (Bottom Right 2) */}
+          <a href="/smart-desk-organizer/part-4" className="glass" style={{
+            gridColumn: 'span 1',
+            padding: '30px', display: 'flex', flexDirection: 'column',
+            borderTop: '2px solid var(--amber)'
+          }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Evaluation</h3>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Testing Results & Feedback.</p>
+          </a>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="section" id="features">
+        <h2 className="title" style={{ marginBottom: '40px' }}>Core Ecosystem</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {[
-            { title: 'Item Tracking', desc: 'The table knows when items are picked up or put back, helping you find things effortlessly.' },
-            { title: 'Gesture Controls', desc: 'Control timers and features with simple hand movements, perfect for accessibility.' },
-            { title: 'Stylus Support', desc: 'Write, draw, and take notes directly on the desk screen. Ideal for students and creators.' },
-            { title: 'Projection Features', desc: 'Show schedules or shared documents on the desk or wall for group collaboration.' },
-            { title: 'Health Tracking', desc: 'Medication reminders and posture monitoring via smartwatches and sensors.' },
-            { title: 'Companion App', desc: 'Set goals, get notifications, and track your patterns in real-time from your phone.' }
+            { t: 'Smart Item Tracking', d: 'Computer vision detection for lost items.', c: 'var(--cyan)' },
+            { t: 'Health Assist', d: 'Medication reminders & posture analysis.', c: 'var(--green)' },
+            { t: 'Gesture Control', d: 'Touch-free interaction for accessibility.', c: 'var(--purple)' },
           ].map((f, i) => (
-            <div key={i} className="glass" style={{ padding: '30px' }}>
-              <div style={{ color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '15px', fontWeight: 'bold' }}>0{i + 1}</div>
-              <h3 style={{ marginBottom: '10px' }}>{f.title}</h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: '1.5' }}>{f.desc}</p>
+            <div key={i} className="glass" style={{ padding: '30px', borderLeft: `4px solid ${f.c}` }}>
+              <h3 style={{ marginBottom: '10px' }}>{f.t}</h3>
+              <p style={{ color: 'var(--text-muted)' }}>{f.d}</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Personas Section */}
-      <section className="section" id="personas">
-        <h2 className="title">Who is it for?</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
-          {[
-            { name: 'Adam Farhan (22)', role: 'University Student', goal: 'Improve focus and maintain a tidy desk during long study sessions.' },
-            { name: 'Encik Roslan (63)', role: 'Elderly User', goal: 'Receive gentle reminders for posture and medication with a simplified interface.' },
-            { name: 'Daniel Lim (32)', role: 'Remote Professional', goal: 'Maximize productivity with automated tracking and minimal distractions.' }
-          ].map((p, i) => (
-            <div key={i} className="glass" style={{ padding: '40px', borderTop: '4px solid var(--primary)' }}>
-              <h3 className="gradient-text">{p.name}</h3>
-              <div style={{ fontSize: '0.9rem', color: 'var(--primary)', marginBottom: '15px', fontWeight: 'bold' }}>{p.role}</div>
-              <p style={{ fontStyle: 'italic', color: 'var(--text-muted)' }}>"{p.goal}"</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Project Breakdown Section */}
-      <section className="section animate" id="breakdown">
-        <h2 className="title" style={{ textAlign: 'center', fontSize: '3rem', marginBottom: '60px' }}>
-          Project <span className="gradient-text">Breakdown</span>
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-          {[
-            { tag: 'Part 1', title: 'The Proposal', href: '/part-1', desc: 'Problem statement, objectives, and proposed solution.' },
-            { tag: 'Part 2', title: 'Requirements', href: '/part-2', desc: 'User personas, task analysis (HTA), and system specs.' },
-            { tag: 'Part 3', title: 'Design', href: '/part-3', desc: 'Interface metaphors, storyboards, and prototyping.' },
-            { tag: 'Part 4', title: 'Evaluation', href: '/part-4', desc: 'Usability testing, user feedback, and final results.' },
-          ].map((item, i) => (
-            <a href={`/smart-desk-organizer${item.href}`} key={i} className="glass" style={{ padding: '30px', textDecoration: 'none', transition: 'transform 0.3s', display: 'block' }}>
-              <span style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 'bold' }}>{item.tag}</span>
-              <h3 style={{ margin: '10px 0' }}>{item.title}</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{item.desc}</p>
-            </a>
           ))}
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="section" id="team">
-        <h2 className="title">Project Team</h2>
-        <div className="glass" style={{ overflow: 'hidden' }}>
+      <section className="section" id="team" style={{ marginBottom: '100px' }}>
+        <h2 className="title">The Team</h2>
+        <div className="glass" style={{ padding: '40px' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-            <thead>
-              <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
-                <th style={{ padding: '20px' }}>Member Name</th>
-                <th style={{ padding: '20px' }}>Student ID</th>
-              </tr>
-            </thead>
             <tbody>
               {[
                 { name: 'MUHAMMAD SYAFIQ BIN AB RAZAK', id: 'SX240659ECJHS04' },
@@ -130,15 +151,16 @@ export default function Home() {
                 { name: 'MUHAMMAD THAQIF BIN ABDUL AZIZ', id: 'SX231702ECJHF04' },
                 { name: 'PUTRA NAZREEN HAFIZ BIN ABDUL KARIM', id: 'SX240247ECJHS04' }
               ].map((m, i) => (
-                <tr key={i} style={{ borderTop: '1px solid var(--border)' }}>
-                  <td style={{ padding: '20px' }}>{m.name}</td>
-                  <td style={{ padding: '20px', color: 'var(--text-muted)' }}>{m.id}</td>
+                <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <td style={{ padding: '20px', fontWeight: '500' }}>{m.name}</td>
+                  <td style={{ padding: '20px', color: 'var(--text-muted)', fontFamily: 'monospace' }}>{m.id}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </section>
+
     </main>
   );
 }
