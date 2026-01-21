@@ -146,6 +146,64 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Project Documentation Section */}
+      <section className="section" id="docs" style={{ marginBottom: '80px' }}>
+        <h2 className="title" style={{ textAlign: 'center', marginBottom: '40px' }}>Project <span className="gradient-text">Documentation</span></h2>
+
+        <div className="glass" style={{
+          padding: '40px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '30px'
+        }}>
+          <p style={{ maxWidth: '600px', textAlign: 'center', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' }}>
+            Explore the comprehensive HCI report detailing our research, methodology, design process, and evaluation results.
+          </p>
+
+          <div style={{
+            width: '100%',
+            maxWidth: '1000px',
+            height: '600px',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            border: '1px solid rgba(255,255,255,0.1)',
+            background: 'rgba(0,0,0,0.3)'
+          }}>
+            <iframe
+              src={`${basePath}/assets/Smart_Desk_Project_HCI.pdf`}
+              style={{ width: '100%', height: '100%', border: 'none' }}
+              title="Project Report Preview"
+            />
+          </div>
+
+          <a
+            href={`${basePath}/assets/Smart_Desk_Project_HCI.pdf`}
+            download="Smart_Desk_Project_HCI.pdf"
+            className="glass"
+            style={{
+              padding: '16px 40px',
+              fontWeight: '600',
+              background: 'var(--primary)',
+              borderRadius: '9999px',
+              textDecoration: 'none',
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px'
+            }}
+          >
+            <span>Download Full Report</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="section" id="team" style={{ marginBottom: '100px' }}>
         <h2 className="title" style={{ textAlign: 'center', marginBottom: '60px' }}>The <span className="gradient-text">Team</span></h2>
@@ -153,9 +211,9 @@ export default function Home() {
           {[
             { name: 'MUHAMMAD SYAFIQ BIN AB RAZAK', id: 'SX240659ECJHS04', img: 'syafiq.jpg' },
             { name: 'MUHAMMAD BADRUL HISYAM BIN MAT ROSLI', id: 'SX231719ECJHF04', img: 'badrul.jpg' },
-            { name: 'MUHAMMAD SYAZWAN BIN KAMARUZAMAN', id: 'SX240290ECRHS04', img: 'placeholder.png' },
+            { name: 'MUHAMMAD SYAZWAN BIN KAMARUZAMAN', id: 'SX240290ECRHS04', img: 'syazwan.jpg' },
             { name: 'MUHAMMAD THAQIF BIN ABDUL AZIZ', id: 'SX231702ECJHF04', img: 'thaqif.jpg' },
-            { name: 'PUTRA NAZREEN HAFIZ BIN ABDUL KARIM', id: 'SX240247ECJHS04', img: 'placeholder.png' }
+            { name: 'PUTRA NAZREEN HAFIZ BIN ABDUL KARIM', id: 'SX240247ECJHS04', img: 'putra.jpg' }
           ].map((m, i) => (
             <div key={i} className="glass team-card">
               <div style={{

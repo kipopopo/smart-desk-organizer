@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <title>Smart Desk Organizer | SDO</title>
         <meta name="description" content="AI-Powered Productivity & Health Assistant for your workspace." />
@@ -55,7 +55,9 @@ export default function RootLayout({ children }) {
 
         <footer style={{ padding: '60px 20px', textAlign: 'center', borderTop: '1px solid var(--border-light)', marginTop: '80px', background: 'var(--card-bg)' }}>
           <p className="gradient-text" style={{ fontWeight: '800', fontSize: '1.2rem', marginBottom: '10px' }}>Smart Desk Organizer</p>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Designed by UTM HCI Project Group &copy; 2026.</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            Designed by <a href="https://github.com/kipopopo/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-color)', textDecoration: 'underline' }}>kipopopo</a> & Team 1 (SDO) &copy; 2026.
+          </p>
         </footer>
       </body>
     </html>
